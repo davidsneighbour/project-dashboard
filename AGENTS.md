@@ -41,6 +41,10 @@ Docker container, and is also scriptable via a zero-dependency Node CLI (`cli/`)
   priority dot (see `DESIGN.md`).
 * **`gh`-first for GitHub.** Prefer the `gh` CLI (`gh auth token`, `gh api`,
   `gh repo`) over hand-rolled REST + PAT plumbing where practical.
+* **Commit agent-made changes.** When an agent changes files for a user request,
+  commit those changes before handing back unless the user explicitly says not to
+  commit or the commit is blocked. Stage only files changed for the request; keep
+  unrelated dirty files out of the commit.
 
 ## Where things live
 

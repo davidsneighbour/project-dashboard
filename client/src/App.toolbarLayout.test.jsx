@@ -39,6 +39,8 @@ describe("Desktop toolbar layout wraps as whole rows", () => {
   it("wraps the header action-button group instead of shrinking it", () => {
     render(<App />);
 
+    expect(screen.getByText(/^v\d+\.\d+\.\d+/)).toBeInTheDocument();
+
     const headerGroup = screen
       .getByRole("button", { name: /sync GitHub/i })
       .closest("div");

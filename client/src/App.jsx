@@ -51,6 +51,8 @@ import { calendarLabel, timeAgo } from "./lib/date.js";
 import { isDevIdOverlayEnabled } from "./lib/devIdOverlay.js";
 import { useIsMobile } from "./lib/useIsMobile.js";
 
+const APP_VERSION = import.meta.env.VITE_APP_VERSION || "0.0.0";
+
 // Colour/priority helpers now live in lib/constants; re-export for back-compat
 // (e.g. tests importing `ownerColor` from this module).
 // biome-ignore lint/performance/noBarrelFile: single intentional back-compat re-export, not a barrel file
@@ -1215,8 +1217,11 @@ export default function App() {
         {moveAnnouncement}
       </div>
       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-900 px-5 py-3">
-        <h1 className="text-base font-semibold tracking-tight text-neutral-100">
+        <h1 className="flex items-baseline gap-2 text-base font-semibold text-neutral-100">
           repo.triage
+          <span className="text-[10px] font-medium text-neutral-600">
+            v{APP_VERSION}
+          </span>
         </h1>
         <div className="flex flex-wrap items-center gap-3 [&_button]:whitespace-nowrap">
           <button

@@ -10,6 +10,9 @@ export default defineConfig(({ mode }) => {
   // Empty prefix loads every var (not just VITE_-prefixed) from the shared
   // root .env, matching where the backend reads its config from.
   const env = loadEnv(mode, rootDir, "");
+  const appVersion = JSON.parse(
+    fs.readFileSync(path.join(rootDir, "package.json"), "utf8"),
+  ).version;
   const httpsEnabled = /^(1|true)$/i.test(
     env.HTTPS_ENABLED || process.env.HTTPS_ENABLED || "",
   );
@@ -32,6 +35,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), tailwindcss()],
     define: {
       "import.meta.env.NO_TELEMETRY": JSON.stringify(noTelemetry),
+      "import.meta.env.VITE_APP_VERSION": JSON.stringify(appVersion),
     },
     server: {
       host: process.env.VITE_HOST || process.env.HOST || "0.0.0.0",
