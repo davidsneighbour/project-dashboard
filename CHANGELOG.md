@@ -1,5 +1,84 @@
 # Changelog
 
+## [4.1.0](https://github.com/davidsneighbour/repo-triage/compare/v4.0.0...v4.1.0) (2026-08-20)
+
+### Features
+
+* add a dev-only element identifier overlay ([159d8b1](https://github.com/davidsneighbour/repo-triage/commit/159d8b109d0e291260ef37ca547cf2979b4e93d5)), closes [#71](https://github.com/davidsneighbour/repo-triage/issues/71)
+* add app logo favicon assets ([28e9b46](https://github.com/davidsneighbour/repo-triage/commit/28e9b46f1c370b36fbf34ce74e4a4b30fabe5cfa))
+* **client:** browsable per-repo issues dialog (sortable/filterable/searchable) ([29cbaf4](https://github.com/davidsneighbour/repo-triage/commit/29cbaf405cbceb16db76b08743506767bec351b8)), closes [#75](https://github.com/davidsneighbour/repo-triage/issues/75), references [#74](https://github.com/davidsneighbour/repo-triage/issues/74) [#74](https://github.com/davidsneighbour/repo-triage/issues/74) [#74](https://github.com/davidsneighbour/repo-triage/issues/74)
+* **client:** double-click/double-tap solos own/forks/archived pills ([e571dc0](https://github.com/davidsneighbour/repo-triage/commit/e571dc0aaa8cd57b0fe38a7cceb9aaa9f37986b6)), closes [#81](https://github.com/davidsneighbour/repo-triage/issues/81)
+* compare repositories against configurable settings sets ([50deaf6](https://github.com/davidsneighbour/repo-triage/commit/50deaf6859e254b39661bd9ca3b7dde14375d390)), closes [#68](https://github.com/davidsneighbour/repo-triage/issues/68)
+* cross-repo issue overview dashboard (local data only) ([92e9e46](https://github.com/davidsneighbour/repo-triage/commit/92e9e4644ab97a25f50a0d78839c7cf33d79bec7)), closes [#77](https://github.com/davidsneighbour/repo-triage/issues/77)
+* dedicated non-modal event-log view ([12f2313](https://github.com/davidsneighbour/repo-triage/commit/12f231314c7beffac0b647cf6cd80c88069fc9fa)), closes [#78](https://github.com/davidsneighbour/repo-triage/issues/78), references [#77](https://github.com/davidsneighbour/repo-triage/issues/77)
+* **header:** show dashboard version ([0c0351b](https://github.com/davidsneighbour/repo-triage/commit/0c0351b37d6b550f8d4b894464589bbb9c844ec4))
+* HTTPS support for local dev and Docker via mkcert ([f709495](https://github.com/davidsneighbour/repo-triage/commit/f7094952c19ba4b1dc3e1f8d3ddc3c8c28bfdb8d)), closes [#84](https://github.com/davidsneighbour/repo-triage/issues/84)
+* local priority flag for synced issues ([e8f9266](https://github.com/davidsneighbour/repo-triage/commit/e8f926659cb771c67d89b27ece58360c68158d8a)), closes [#76](https://github.com/davidsneighbour/repo-triage/issues/76), references [#75](https://github.com/davidsneighbour/repo-triage/issues/75)
+* manage tags from the filter tags menu ([d008e31](https://github.com/davidsneighbour/repo-triage/commit/d008e312c86baa395c86a8712c76d25c95a9b904)), closes [#69](https://github.com/davidsneighbour/repo-triage/issues/69)
+* **server:** full compressed system export via GET /api/backup/full ([0b106f4](https://github.com/davidsneighbour/repo-triage/commit/0b106f4c1f7b64c2ef6d42e0cd41d84d356845c8)), closes [#86](https://github.com/davidsneighbour/repo-triage/issues/86)
+* **server:** full-system restore via POST /api/restore/full ([776bbba](https://github.com/davidsneighbour/repo-triage/commit/776bbba41ce31b399ba6b4fe0ad63b5356bb9d21)), closes [#87](https://github.com/davidsneighbour/repo-triage/issues/87)
+* **server:** sync GitHub issues for tracked repositories ([6129c03](https://github.com/davidsneighbour/repo-triage/commit/6129c035a558186580510155ec1c14b07ed2fbee)), closes [#74](https://github.com/davidsneighbour/repo-triage/issues/74)
+* standardize a dev-only data-id/data-element attribute for overlay identifiers ([fb5183c](https://github.com/davidsneighbour/repo-triage/commit/fb5183cc7801bafa5dde917491f13029457df2b1)), closes [#79](https://github.com/davidsneighbour/repo-triage/issues/79), references [#71](https://github.com/davidsneighbour/repo-triage/issues/71)
+* **telemetry:** add Sentry error tracking ([2f770c4](https://github.com/davidsneighbour/repo-triage/commit/2f770c4e68ab617c5628323116392b09643150cf)), closes [#88](https://github.com/davidsneighbour/repo-triage/issues/88) [#93](https://github.com/davidsneighbour/repo-triage/issues/93)
+* **tokens:** multi-token support with AES-256-GCM encrypted DB storage ([07fea9c](https://github.com/davidsneighbour/repo-triage/commit/07fea9cde9835d69d6d9f5a97f2106ec969eaf35)), closes [#65](https://github.com/davidsneighbour/repo-triage/issues/65) [#66](https://github.com/davidsneighbour/repo-triage/issues/66), references [#65](https://github.com/davidsneighbour/repo-triage/issues/65) [#66](https://github.com/davidsneighbour/repo-triage/issues/66)
+
+### Bug fixes
+
+* **client:** wrap toolbar rows instead of shrinking button text ([08d6475](https://github.com/davidsneighbour/repo-triage/commit/08d6475ec40a678e18a9d81a36dc2e7ef0600853)), closes [#82](https://github.com/davidsneighbour/repo-triage/issues/82)
+* **docker:** map host port to 9999 to match app's configured PORT ([0c57311](https://github.com/davidsneighbour/repo-triage/commit/0c57311493f4aab5b527c8ec0cffca6187fc94b4))
+* **docs:** correct malformed JSDoc type expressions ([b9f0714](https://github.com/davidsneighbour/repo-triage/commit/b9f071400606be8f54ab965ae31defafc60b9557)), references [#83](https://github.com/davidsneighbour/repo-triage/issues/83)
+* **docs:** set basePath so docs/api assets resolve under /repo-triage/ ([7a7f0d4](https://github.com/davidsneighbour/repo-triage/commit/7a7f0d4b2aea47556415592c625a822449da9356))
+* improve unchecked board interactions ([d40afd7](https://github.com/davidsneighbour/repo-triage/commit/d40afd7255c04d4400b010e8ab7d5bad86efa658)), closes [#90](https://github.com/davidsneighbour/repo-triage/issues/90) [#91](https://github.com/davidsneighbour/repo-triage/issues/91) [#92](https://github.com/davidsneighbour/repo-triage/issues/92)
+* stub getTags in App.devOverlay.test.jsx api mock ([1a59900](https://github.com/davidsneighbour/repo-triage/commit/1a599003809129f83bc266c858361750306c771d))
+* stub getTags in App.issuesOverview.test.jsx api mock ([9c11673](https://github.com/davidsneighbour/repo-triage/commit/9c1167310551f2d57cfaac5fd60be94fa2f4172a))
+
+### Documentation
+
+* codify no-merge-commit git workflow rule ([a8cc1af](https://github.com/davidsneighbour/repo-triage/commit/a8cc1afebe1e90cbd939b22d5e12d3b5de191660))
+* **readme:** link the published API docs site ([02907ac](https://github.com/davidsneighbour/repo-triage/commit/02907acdd21a8a8f04a91c2ad74ba91ba0eb0978)), closes [#85](https://github.com/davidsneighbour/repo-triage/issues/85)
+
+### Build system
+
+* add lint-staged with zizmor-gated GitHub Actions workflows ([21127bf](https://github.com/davidsneighbour/repo-triage/commit/21127bff7c50d5a6ec7560b48d033edeb66882ad))
+* add skills setup ([55da104](https://github.com/davidsneighbour/repo-triage/commit/55da104c09e71924c7ce5d5cb7c4db4063b4bdf0))
+* **deps-dev:** Bump undici from 7.27.0 to 7.28.0 in /client ([#61](https://github.com/davidsneighbour/repo-triage/issues/61)) ([93d08c1](https://github.com/davidsneighbour/repo-triage/commit/93d08c16e44163c52eaa6d09959dd7a867d4c375))
+* **deps:** update dependencies ([5b5e7e4](https://github.com/davidsneighbour/repo-triage/commit/5b5e7e4ef3f8fb17259d01c445a4241f2699ed4a))
+* **deps:** update devDependencies ([ef2226e](https://github.com/davidsneighbour/repo-triage/commit/ef2226e8b6969fbd6d07aebd89bfab2000a5a297))
+* enable dev id overlay in local docker ([9baea9e](https://github.com/davidsneighbour/repo-triage/commit/9baea9ee2e34add30a0171a957ad6de3f4c1ac31))
+* enforce Node 26+ across packages, CI, and Docker ([7da0e9b](https://github.com/davidsneighbour/repo-triage/commit/7da0e9ba0474c0fac299141f7f8d8d02a3199315))
+* onboard @dnbhq/biome-config and wire biome into lint-staged ([412348f](https://github.com/davidsneighbour/repo-triage/commit/412348fa30a5a15c0824631e212d8d7c0ca71c2f))
+
+### CI
+
+* deploy docs/api to GitHub Pages on push to main ([6abe35b](https://github.com/davidsneighbour/repo-triage/commit/6abe35b594fc35742cd9450e690233f17bcb681a)), closes [#83](https://github.com/davidsneighbour/repo-triage/issues/83)
+
+### Miscellaneous
+
+* delete skill links ([d52ee65](https://github.com/davidsneighbour/repo-triage/commit/d52ee654e5cc90cc289e15f58797ea31720de84e))
+* **deps:** pin undici to >=7.28.0 via overrides to fix high-severity CVEs ([2329aea](https://github.com/davidsneighbour/repo-triage/commit/2329aea4f58b2d0c250c9eb843e57e51affa7a0c)), closes [#67](https://github.com/davidsneighbour/repo-triage/issues/67)
+* **deps:** resolve clean-jsdoc-theme esbuild audit finding ([1dea47b](https://github.com/davidsneighbour/repo-triage/commit/1dea47b140a328dda0cc00d4a026d3e62dd3b9d5)), closes [#72](https://github.com/davidsneighbour/repo-triage/issues/72) [#73](https://github.com/davidsneighbour/repo-triage/issues/73) [#73](https://github.com/davidsneighbour/repo-triage/issues/73)
+* **deps:** resolve markdownlint tooling audit findings ([60f10a0](https://github.com/davidsneighbour/repo-triage/commit/60f10a0a567bd56239f40025415e54c603ef47ba)), closes [#72](https://github.com/davidsneighbour/repo-triage/issues/72), references [#73](https://github.com/davidsneighbour/repo-triage/issues/73)
+* **deps:** resolve npm audit findings in server, client, cli ([bcac6e6](https://github.com/davidsneighbour/repo-triage/commit/bcac6e65b9ff3031023378e2b67b4f157b695c74))
+* **deps:** upgrade clean-jsdoc-theme v4 → v5 to drop showdown ReDoS ([a5f79d4](https://github.com/davidsneighbour/repo-triage/commit/a5f79d47c38e93bedd7e5dd5ad420f8f48f959e7)), closes [#64](https://github.com/davidsneighbour/repo-triage/issues/64)
+* **mcp:** add Sentry MCP config ([ed483ef](https://github.com/davidsneighbour/repo-triage/commit/ed483ef18cbd1fa81273396975c6c95a5dafd1ec)), closes [#89](https://github.com/davidsneighbour/repo-triage/issues/89)
+* **project:** migrate ROADMAP.md to PROJECT.md per triage skill ([3c9bc8b](https://github.com/davidsneighbour/repo-triage/commit/3c9bc8be79a00348c5c9d9e71d567e623ff162d8))
+* **project:** update project plan ([ef297ef](https://github.com/davidsneighbour/repo-triage/commit/ef297efb8a4e1505d11569e94a80d7fc7356b860)), references [#88](https://github.com/davidsneighbour/repo-triage/issues/88) [#89](https://github.com/davidsneighbour/repo-triage/issues/89) [#90](https://github.com/davidsneighbour/repo-triage/issues/90) [#91](https://github.com/davidsneighbour/repo-triage/issues/91) [#92](https://github.com/davidsneighbour/repo-triage/issues/92) [#93](https://github.com/davidsneighbour/repo-triage/issues/93)
+* **project:** update project plan ([1e8eb37](https://github.com/davidsneighbour/repo-triage/commit/1e8eb371b697761a41c84383b43f961e59556603)), closes [#N](https://github.com/davidsneighbour/repo-triage/issues/N), references [84-#87](https://github.com/84-/issues/87)
+* **project:** update project plan ([1cd56ba](https://github.com/davidsneighbour/repo-triage/commit/1cd56bab714519593cfa6fc06fcf21af328042da)), closes [#81](https://github.com/davidsneighbour/repo-triage/issues/81) [#82](https://github.com/davidsneighbour/repo-triage/issues/82) [#83](https://github.com/davidsneighbour/repo-triage/issues/83), references [#84](https://github.com/davidsneighbour/repo-triage/issues/84) [#85](https://github.com/davidsneighbour/repo-triage/issues/85) [#86](https://github.com/davidsneighbour/repo-triage/issues/86) [#87](https://github.com/davidsneighbour/repo-triage/issues/87) [#86](https://github.com/davidsneighbour/repo-triage/issues/86)
+* **project:** update project plan ([7b4ec56](https://github.com/davidsneighbour/repo-triage/commit/7b4ec56ae5ef29ff7677ec81e9cc48d963bc3d6e)), closes [#81](https://github.com/davidsneighbour/repo-triage/issues/81), references [#82](https://github.com/davidsneighbour/repo-triage/issues/82) [#83](https://github.com/davidsneighbour/repo-triage/issues/83)
+* **project:** update project plan ([152afd1](https://github.com/davidsneighbour/repo-triage/commit/152afd1edaa57cff7807b3ed5781ea9694471108)), references [#81](https://github.com/davidsneighbour/repo-triage/issues/81) [#81](https://github.com/davidsneighbour/repo-triage/issues/81) [#81](https://github.com/davidsneighbour/repo-triage/issues/81)
+* **project:** update project plan ([f98ae33](https://github.com/davidsneighbour/repo-triage/commit/f98ae33f56d40d86ce0068fa490c98259407b34f))
+* **project:** update project plan ([48a72a1](https://github.com/davidsneighbour/repo-triage/commit/48a72a108b5d614b6701528effebb49b7381b263)), closes [#68](https://github.com/davidsneighbour/repo-triage/issues/68) [#80](https://github.com/davidsneighbour/repo-triage/issues/80), references [#78](https://github.com/davidsneighbour/repo-triage/issues/78) [#77](https://github.com/davidsneighbour/repo-triage/issues/77) [#79](https://github.com/davidsneighbour/repo-triage/issues/79) [#71](https://github.com/davidsneighbour/repo-triage/issues/71)
+* **project:** update project plan ([23844c9](https://github.com/davidsneighbour/repo-triage/commit/23844c9679011e320196faeceef744fffce0ac49)), closes [#69](https://github.com/davidsneighbour/repo-triage/issues/69) [#68](https://github.com/davidsneighbour/repo-triage/issues/68) [#71](https://github.com/davidsneighbour/repo-triage/issues/71) [#77](https://github.com/davidsneighbour/repo-triage/issues/77) [#70](https://github.com/davidsneighbour/repo-triage/issues/70) [#79](https://github.com/davidsneighbour/repo-triage/issues/79), references [#71](https://github.com/davidsneighbour/repo-triage/issues/71)
+* **project:** update project plan ([5dafb7e](https://github.com/davidsneighbour/repo-triage/commit/5dafb7e325d04af8bdee907dc60c110936151e68)), references [#77](https://github.com/davidsneighbour/repo-triage/issues/77) [#77](https://github.com/davidsneighbour/repo-triage/issues/77)
+* **project:** update project plan ([c7a72a0](https://github.com/davidsneighbour/repo-triage/commit/c7a72a02e81b08890997260496b0337a93a7d64f)), closes [#74](https://github.com/davidsneighbour/repo-triage/issues/74) [#75](https://github.com/davidsneighbour/repo-triage/issues/75), references [72/#73](https://github.com/davidsneighbour/repo-triage/issues/73) [69/#70](https://github.com/davidsneighbour/repo-triage/issues/70) [#71](https://github.com/davidsneighbour/repo-triage/issues/71)
+* **project:** update project plan ([c4ab94b](https://github.com/davidsneighbour/repo-triage/commit/c4ab94b88c700d9d8bed7a873134a7f2b38ca8bf)), closes [#65](https://github.com/davidsneighbour/repo-triage/issues/65), references [#74](https://github.com/davidsneighbour/repo-triage/issues/74) [#75](https://github.com/davidsneighbour/repo-triage/issues/75) [#76](https://github.com/davidsneighbour/repo-triage/issues/76)
+* **project:** update project plan ([155627e](https://github.com/davidsneighbour/repo-triage/commit/155627ef148389ff97e0be1e481596471c48fa66)), closes [#64](https://github.com/davidsneighbour/repo-triage/issues/64) [#67](https://github.com/davidsneighbour/repo-triage/issues/67), references [#68](https://github.com/davidsneighbour/repo-triage/issues/68) [#69](https://github.com/davidsneighbour/repo-triage/issues/69) [#70](https://github.com/davidsneighbour/repo-triage/issues/70) [#71](https://github.com/davidsneighbour/repo-triage/issues/71) [#72](https://github.com/davidsneighbour/repo-triage/issues/72) [#73](https://github.com/davidsneighbour/repo-triage/issues/73)
+* **project:** update project plan ([37dc65a](https://github.com/davidsneighbour/repo-triage/commit/37dc65af0784fd6fef46418c8c8553702f2c7f3f)), references [#65](https://github.com/davidsneighbour/repo-triage/issues/65) [#66](https://github.com/davidsneighbour/repo-triage/issues/66) [#65](https://github.com/davidsneighbour/repo-triage/issues/65) [#64](https://github.com/davidsneighbour/repo-triage/issues/64) [#65](https://github.com/davidsneighbour/repo-triage/issues/65) [#66](https://github.com/davidsneighbour/repo-triage/issues/66) [#67](https://github.com/davidsneighbour/repo-triage/issues/67)
+* remove ai symlink ([b664b62](https://github.com/davidsneighbour/repo-triage/commit/b664b62bedae2841e3d1c4f0fe0aa9f9c47ea171))
+* scope npm run lint:markdown glob away from vendor/generated files ([613244d](https://github.com/davidsneighbour/repo-triage/commit/613244d2f0f6ccf5e3ef1e21ffb281c706933929)), closes [#80](https://github.com/davidsneighbour/repo-triage/issues/80)
+* **vscode:** expand file-nesting patterns for new config files ([b0b825f](https://github.com/davidsneighbour/repo-triage/commit/b0b825f99298c057de8bebcfcea5752a8c4be53c))
+
 ## [4.0.0](https://github.com/davidsneighbour/repo-triage/compare/v3.2.1...v4.0.0) (2026-06-20)
 
 ### ⚠ BREAKING CHANGES
