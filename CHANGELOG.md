@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.1.1](https://github.com/davidsneighbour/repo-triage/compare/v4.1.0...v4.1.1) (2026-08-20)
+
+### Build system
+
+* **fix:** remove github token reference ([725a264](https://github.com/davidsneighbour/repo-triage/commit/725a2647cd567fa95a59b5ea200822861373fb52))
+
 ## [4.1.0](https://github.com/davidsneighbour/repo-triage/compare/v4.0.0...v4.1.0) (2026-08-20)
 
 ### Features
