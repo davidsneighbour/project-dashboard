@@ -1,0 +1,7 @@
+upgrade: true
+deep: true
+
+# if we need to disable upgrades for certain packages:
+# reject:
+#   - '@types/estree'
+#   - ts-node
