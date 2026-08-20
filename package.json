@@ -53,17 +53,17 @@
     "hooks:update": "simple-git-hooks"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.3",
+    "@biomejs/biome": "2.5.9",
     "@dnbhq/biome-config": "0.2.3",
-    "@dnbhq/markdownlint-config": "0.2.7",
-    "@dnbhq/release-config": "1.1.0",
-    "@release-it/conventional-changelog": "11.0.1",
-    "clean-jsdoc-theme": "5.0.6",
-    "concurrently": "10.0.3",
+    "@dnbhq/markdownlint-config": "0.2.11",
+    "@dnbhq/release-config": "1.1.3",
+    "@release-it/conventional-changelog": "12.0.0",
+    "clean-jsdoc-theme": "5.1.1",
+    "concurrently": "10.0.5",
     "cspell": "10.0.1",
     "jsdoc": "4.0.5",
-    "lint-staged": "17.0.8",
-    "release-it": "20.2.0",
+    "lint-staged": "17.3.0",
+    "release-it": "21.0.2",
     "simple-git-hooks": "2.13.1"
   },
   "simple-git-hooks": {
