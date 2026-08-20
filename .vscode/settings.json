@@ -12,7 +12,7 @@
     "*.jsx": "${capture}.js",
     "*.tsx": "${capture}.ts",
     "package.json": "package-lock.json, .markdownlint-cli2.jsonc, .markdownlintignore, .release-it.json, jsdoc.config.json, .lintstagedrc.js, .npmrc, .nvmrc, biome.json, skills-lock.json",
-    "README.md": "CHANGELOG.md, CONTRIBUTING.md, LICENSE.md, DESIGN.md, AGENTS.md, ROADMAP.md, TODO.md"
+    "README.md": "CHANGELOG.md, CONTRIBUTING.md, LICENSE.md, DESIGN.md, AGENTS.md, PROJECT.md, TODO.md"
   },
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ff0b54",
