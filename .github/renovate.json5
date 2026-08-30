@@ -1,8 +1,9 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["github>dnbhq/renovate-config", "helpers:pinGitHubActionDigests"],
-  regexManagers: [
+  customManagers: [
     {
+      customType: "regex",
       description: "Update GH_VERSION ARG in Dockerfile when cli/cli releases",
       fileMatch: ["^Dockerfile$"],
       matchStrings: ["ARG GH_VERSION=(?<currentValue>\\S+)"],
