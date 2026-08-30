@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.2.0](https://github.com/davidsneighbour/repo-triage/compare/v4.1.1...v4.2.0) (2026-08-30)
+
+### Features
+
+* **client:** add quick-edit table view for fast repo triage ([3d3f0d9](https://github.com/davidsneighbour/repo-triage/commit/3d3f0d9fa821ae3749421a4062bd3fe226158604))
+
+### Performance improvements
+
+* **client:** code-split rarely-opened dialogs out of the main bundle ([be2f9d4](https://github.com/davidsneighbour/repo-triage/commit/be2f9d41d62e629c83548b4f041e30596506a3b6)), closes [#103](https://github.com/davidsneighbour/repo-triage/issues/103)
+
+### Build system
+
+* **vscode:** update workspace configuration ([1ef2433](https://github.com/davidsneighbour/repo-triage/commit/1ef24331f3302e9036c66d461fe685e42e1d1a6e))
+
 ## [4.1.1](https://github.com/davidsneighbour/repo-triage/compare/v4.1.0...v4.1.1) (2026-08-20)
 
 ### Build system
