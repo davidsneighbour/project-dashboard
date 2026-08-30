@@ -17,8 +17,8 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@sentry/react": "10.70.0",
-    "lucide-react": "1.33.0",
+    "@sentry/react": "10.72.0",
+    "lucide-react": "1.37.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-markdown": "10.1.0",
@@ -29,9 +29,9 @@
     "@tailwindcss/node": "4.3.3",
     "@tailwindcss/vite": "4.3.3",
     "@testing-library/jest-dom": "7.0.1",
-    "@testing-library/react": "16.3.2",
-    "@testing-library/user-event": "14.6.5",
-    "@vitejs/plugin-react": "6.1.0",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.6",
+    "@vitejs/plugin-react": "6.1.1",
     "@vitest/coverage-v8": "4.1.11",
     "jest-axe": "11.0.0",
     "jsdom": "30.0.1",
