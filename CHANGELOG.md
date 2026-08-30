@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.2.1](https://github.com/davidsneighbour/repo-triage/compare/v4.2.0...v4.2.1) (2026-08-30)
+
+### Build system
+
+* **deps:** update dependencies ([23c79a5](https://github.com/davidsneighbour/repo-triage/commit/23c79a535e3d661fe00c5bc5f994013e5ffeca17))
+
 ## [4.2.0](https://github.com/davidsneighbour/repo-triage/compare/v4.1.1...v4.2.0) (2026-08-30)
 
 ### Features
