@@ -9,6 +9,10 @@ WORKDIR /app/client
 COPY client/package*.json ./
 RUN npm install
 COPY client/ ./
+# vite.config.js reads the repo-root package.json for the app version and
+# loads the shared root .env — copy it in one level up from WORKDIR so
+# path.resolve(import.meta.dirname, "..") resolves to a real file.
+COPY package.json /app/package.json
 ARG VITE_DEV_ID_OVERLAY=false
 ARG VITE_SENTRY_DSN=
 ARG NO_TELEMETRY=
