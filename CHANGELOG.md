@@ -1,5 +1,33 @@
 # Changelog
 
+## [4.2.3](https://github.com/davidsneighbour/repo-triage/compare/v4.2.1...v4.2.3) (2026-08-30)
+
+### Fix
+
+* **ci:** unbreak Docker image build and API docs deploy ([e28024d](https://github.com/davidsneighbour/repo-triage/commit/e28024de7a498e7e4ec6b7db357a318552667b0d))
+
+### Build
+
+* **ci:** bump pinned actions to node24-runtime releases ([25eae99](https://github.com/davidsneighbour/repo-triage/commit/25eae999dbf861f85f3bbcd48b22e5ca7c8456d9))
+* **release:** wire up @dnbhq/release-config ([6bdaf7c](https://github.com/davidsneighbour/repo-triage/commit/6bdaf7c0c3e546ceead3768bcf512f96ca9a792c))
+* **renovate:** migrate regexManagers to customManagers ([a9113af](https://github.com/davidsneighbour/repo-triage/commit/a9113af780546e722265700f26217bda2d3f8fe9))
+* **secretlint:** onboard @dnbhq/secretlint-config ([86fe716](https://github.com/davidsneighbour/repo-triage/commit/86fe71600934feaf813fa45fb6f360047a107e4e))
+* **secretlint:** wire dnb-secretlint into lint-staged ([031287e](https://github.com/davidsneighbour/repo-triage/commit/031287e904693a6e3c05a6bcb8afae98c6f64e80))
+
+## [4.2.2](https://github.com/davidsneighbour/repo-triage/compare/v4.2.1...v4.2.2) (2026-08-30)
+
+### Fix
+
+* **ci:** unbreak Docker image build and API docs deploy ([e28024d](https://github.com/davidsneighbour/repo-triage/commit/e28024de7a498e7e4ec6b7db357a318552667b0d))
+
+### Build
+
+* **ci:** bump pinned actions to node24-runtime releases ([25eae99](https://github.com/davidsneighbour/repo-triage/commit/25eae999dbf861f85f3bbcd48b22e5ca7c8456d9))
+* **release:** wire up @dnbhq/release-config ([6bdaf7c](https://github.com/davidsneighbour/repo-triage/commit/6bdaf7c0c3e546ceead3768bcf512f96ca9a792c))
+* **renovate:** migrate regexManagers to customManagers ([a9113af](https://github.com/davidsneighbour/repo-triage/commit/a9113af780546e722265700f26217bda2d3f8fe9))
+* **secretlint:** onboard @dnbhq/secretlint-config ([86fe716](https://github.com/davidsneighbour/repo-triage/commit/86fe71600934feaf813fa45fb6f360047a107e4e))
+* **secretlint:** wire dnb-secretlint into lint-staged ([031287e](https://github.com/davidsneighbour/repo-triage/commit/031287e904693a6e3c05a6bcb8afae98c6f64e80))
+
 ## [4.2.1](https://github.com/davidsneighbour/repo-triage/compare/v4.2.0...v4.2.1) (2026-08-30)
 
 ### Build system

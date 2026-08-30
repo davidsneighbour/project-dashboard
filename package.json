@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/repo-triage",
-  "version": "4.2.1",
+  "version": "4.2.3",
   "description": "A local-only dashboard that lists **all** your GitHub repositories as a kanban board and lets you triage them by priority.",
   "homepage": "https://github.com/davidsneighbour/repo-triage#readme",
   "bugs": {
@@ -39,7 +39,7 @@
     "docker:up": "GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token 2>/dev/null)} docker compose up",
     "docker:build": "GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token 2>/dev/null)} docker compose up --build",
     "certs:generate": "mkdir -p certs && mkcert -key-file certs/dev-key.pem -cert-file certs/dev-cert.pem localhost 127.0.0.1 ::1",
-    "release": "release-it",
+    "release": "release-it --ci",
     "release:dry": "release-it --dry-run",
     "docs:api": "jsdoc -c jsdoc.config.json",
     "lint:markdown": "markdownlint-cli2 --config ./node_modules/@dnbhq/markdownlint-config/.markdownlint-cli2.jsonc \"**/*.{md,mdx}\"",
