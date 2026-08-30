@@ -1080,6 +1080,38 @@ was no cross-repo, sortable, non-dialog surface for it until this issue.
 * **Header** — title and a count line ("N events across all repos"), plus a
   close button. Empty state: "no activity yet" in `text-faint`.
 
+### Repo admin dialog (Quick edit)
+
+`RepoAdminDialog.jsx` — a full-page modal opened from an icon-only toolbar
+button (`ICON.admin`, lucide `Columns3Cog` glyph) placed immediately left of
+Status. Unlike the other modal dialogs (`max-w-4xl`, centred), this one fills
+almost the whole viewport (`fixed inset-2`, `sm:inset-4`) since its job is
+fast bulk triage across every repo at once, not a focused detail view.
+
+* **Purpose** — a dense table for flipping the two per-repo triage axes
+  (ignored, priority) on many repos quickly, without opening each repo's
+  CardMenu individually.
+* **Columns** — organisation (owner dot + login, same treatment as
+  `ListView`), repo (name linked to `html_url`, opens in a new tab),
+  description (wraps across multiple lines — never truncated), an ignored
+  switch, and the same P1/P2/P3/None priority row used in the CardMenu
+  (sized down for the table cell; clicking the active level clears it).
+* **Filters** — an organisation `<select>` (all owners currently in the repo
+  set, plus "All organisations"), a repo-name text filter, and a description
+  text filter. The name/description filters are backed by a `<datalist>` of
+  the current values for typeahead suggestions, but matching itself is a
+  live substring filter — no need to pick a suggestion.
+* **Hide-ignored toggle** — a filter pill (`EyeOff` glyph, same active/
+  inactive treatment as Filter pills above) local to this dialog, defaulting
+  to **on** so the table opens scoped to active repos. Toggling a repo's
+  ignore switch while this is on removes it from the table immediately once
+  the mutation round-trip reloads board data — the same re-fetch-after-
+  mutate flow every other mutation in the app already uses, not bespoke
+  optimistic state.
+* Read/write: `onSetPriority`/`onSetIgnored` are the same callbacks
+  `App.jsx` passes into `CardMenu`, so this dialog carries no mutation logic
+  of its own.
+
 ### Banners
 
 Full-width alerts in the board area (above the columns). Two variants:

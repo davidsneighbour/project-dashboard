@@ -20,6 +20,7 @@ import { MobileActionSheet } from "./components/MobileActionSheet.jsx";
 import { MobileBoard } from "./components/MobileBoard.jsx";
 import { NoticesDialog } from "./components/NoticesDialog.jsx";
 import { PriorityFilter } from "./components/PriorityFilter.jsx";
+import { RepoAdminDialog } from "./components/RepoAdminDialog.jsx";
 import { ReportsDialog } from "./components/ReportsDialog.jsx";
 import { SettingsDialog } from "./components/SettingsDialog.jsx";
 import { StatusDialog } from "./components/StatusDialog.jsx";
@@ -79,6 +80,7 @@ export default function App() {
   const ListIcon = ICON.list;
   const BoardIcon = ICON.board;
   const SettingsIcon = ICON.settings;
+  const AdminIcon = ICON.admin;
 
   const [data, setData] = useState(() => readBoardCache() ?? EMPTY_DATA);
   const [loading, setLoading] = useState(() => !readBoardCache());
@@ -109,6 +111,7 @@ export default function App() {
   const [reportsOpen, setReportsOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [statusOpen, setStatusOpen] = useState(false);
+  const [adminOpen, setAdminOpen] = useState(false);
   const [remoteSettings, setRemoteSettings] = useState(null);
   const [tagRules, setTagRules] = useState([]);
   const [settingsSets, setSettingsSets] = useState([]);
@@ -1225,6 +1228,14 @@ export default function App() {
         </h1>
         <div className="flex flex-wrap items-center gap-3 [&_button]:whitespace-nowrap">
           <button
+            onClick={() => setAdminOpen(true)}
+            className="flex items-center rounded-md border border-neutral-700 bg-neutral-900 p-1.5 text-neutral-200 hover:bg-neutral-800"
+            aria-label="Open quick edit"
+            title="Quick edit"
+          >
+            <AdminIcon className="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
+          <button
             onClick={() => setStatusOpen(true)}
             className={cx(
               "flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-medium hover:bg-neutral-800",
@@ -1495,6 +1506,14 @@ export default function App() {
       {helpOpen && <HelpDialog onClose={() => setHelpOpen(false)} />}
       {statusOpen && (
         <StatusDialog data={data} onClose={() => setStatusOpen(false)} />
+      )}
+      {adminOpen && (
+        <RepoAdminDialog
+          repos={data.repos}
+          onSetPriority={onSetPriority}
+          onSetIgnored={onSetIgnored}
+          onClose={() => setAdminOpen(false)}
+        />
       )}
       {reportsOpen && <ReportsDialog onClose={() => setReportsOpen(false)} />}
       {noticesScope != null && (
