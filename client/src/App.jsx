@@ -1,4 +1,6 @@
 import {
+  lazy,
+  Suspense,
   useCallback,
   useEffect,
   useMemo,
@@ -10,22 +12,65 @@ import { api } from "./api.js";
 import { BulkBar } from "./components/BulkBar.jsx";
 import { Column } from "./components/Column.jsx";
 import { DevIdOverlay } from "./components/DevIdOverlay.jsx";
-import { EventLogView } from "./components/EventLogView.jsx";
 import { FieldsMenu } from "./components/FieldsMenu.jsx";
-import { HelpDialog } from "./components/HelpDialog.jsx";
-import { IssuesDialog } from "./components/IssuesDialog.jsx";
-import { IssuesOverviewDialog } from "./components/IssuesOverviewDialog.jsx";
 import { ListView } from "./components/ListView.jsx";
 import { MobileActionSheet } from "./components/MobileActionSheet.jsx";
 import { MobileBoard } from "./components/MobileBoard.jsx";
-import { NoticesDialog } from "./components/NoticesDialog.jsx";
 import { PriorityFilter } from "./components/PriorityFilter.jsx";
-import { RepoAdminDialog } from "./components/RepoAdminDialog.jsx";
-import { ReportsDialog } from "./components/ReportsDialog.jsx";
-import { SettingsDialog } from "./components/SettingsDialog.jsx";
-import { StatusDialog } from "./components/StatusDialog.jsx";
 import { TagFilter } from "./components/TagFilter.jsx";
 import { Toast } from "./components/Toast.jsx";
+
+// Dialogs/views opened rarely and only on demand (already gated behind
+// `{xOpen && <X/>}`) are code-split out of the main bundle — HelpDialog in
+// particular pulls in react-markdown + remark-gfm, a heavy pair only needed
+// once someone opens Help. See issue #103 (main chunk over Vite's 500 kB
+// warning threshold).
+const EventLogView = lazy(() =>
+  import("./components/EventLogView.jsx").then((m) => ({
+    default: m.EventLogView,
+  })),
+);
+const HelpDialog = lazy(() =>
+  import("./components/HelpDialog.jsx").then((m) => ({
+    default: m.HelpDialog,
+  })),
+);
+const IssuesDialog = lazy(() =>
+  import("./components/IssuesDialog.jsx").then((m) => ({
+    default: m.IssuesDialog,
+  })),
+);
+const IssuesOverviewDialog = lazy(() =>
+  import("./components/IssuesOverviewDialog.jsx").then((m) => ({
+    default: m.IssuesOverviewDialog,
+  })),
+);
+const NoticesDialog = lazy(() =>
+  import("./components/NoticesDialog.jsx").then((m) => ({
+    default: m.NoticesDialog,
+  })),
+);
+const RepoAdminDialog = lazy(() =>
+  import("./components/RepoAdminDialog.jsx").then((m) => ({
+    default: m.RepoAdminDialog,
+  })),
+);
+const ReportsDialog = lazy(() =>
+  import("./components/ReportsDialog.jsx").then((m) => ({
+    default: m.ReportsDialog,
+  })),
+);
+const SettingsDialog = lazy(() =>
+  import("./components/SettingsDialog.jsx").then((m) => ({
+    default: m.SettingsDialog,
+  })),
+);
+const StatusDialog = lazy(() =>
+  import("./components/StatusDialog.jsx").then((m) => ({
+    default: m.StatusDialog,
+  })),
+);
+
 import {
   buildDayColumns,
   collectTags,
@@ -1475,71 +1520,78 @@ export default function App() {
         )}
       </main>
 
-      {settingsOpen && (
-        <SettingsDialog
-          settings={remoteSettings?.settings}
-          defaults={remoteSettings?.defaults}
-          tagRules={tagRules}
-          lastExport={lastExport}
-          onSave={saveSettings}
-          onTagRuleSave={(tag, days) =>
-            api
-              .putTagRule(tag, days)
-              .then(() => api.getTagRules())
-              .then((d) => {
-                setTagRules(d.rules ?? []);
-                load();
-              })
-          }
-          onTagRuleDelete={(tag) =>
-            api
-              .deleteTagRule(tag)
-              .then(() => api.getTagRules())
-              .then((d) => {
-                setTagRules(d.rules ?? []);
-                load();
-              })
-          }
-          onClose={() => setSettingsOpen(false)}
-        />
-      )}
-      {helpOpen && <HelpDialog onClose={() => setHelpOpen(false)} />}
-      {statusOpen && (
-        <StatusDialog data={data} onClose={() => setStatusOpen(false)} />
-      )}
-      {adminOpen && (
-        <RepoAdminDialog
-          repos={data.repos}
-          onSetPriority={onSetPriority}
-          onSetIgnored={onSetIgnored}
-          onClose={() => setAdminOpen(false)}
-        />
-      )}
-      {reportsOpen && <ReportsDialog onClose={() => setReportsOpen(false)} />}
-      {noticesScope != null && (
-        <NoticesDialog
-          scope={noticesScope}
-          repos={data.repos}
-          onClose={() => setNoticesScope(null)}
-          onScopeChange={setNoticesScope}
-          onChanged={load}
-          onDeleted={(notice) =>
-            notice &&
-            showToast("Notice deleted", () =>
-              mutate(() =>
-                api.addNotice(notice.repo_id, notice.body, notice.created_at),
-              ),
-            )
-          }
-        />
-      )}
-      {issuesRepo && (
-        <IssuesDialog repo={issuesRepo} onClose={() => setIssuesRepoId(null)} />
-      )}
-      {issuesOverviewOpen && (
-        <IssuesOverviewDialog onClose={() => setIssuesOverviewOpen(false)} />
-      )}
-      {eventLogOpen && <EventLogView onClose={() => setEventLogOpen(false)} />}
+      <Suspense fallback={null}>
+        {settingsOpen && (
+          <SettingsDialog
+            settings={remoteSettings?.settings}
+            defaults={remoteSettings?.defaults}
+            tagRules={tagRules}
+            lastExport={lastExport}
+            onSave={saveSettings}
+            onTagRuleSave={(tag, days) =>
+              api
+                .putTagRule(tag, days)
+                .then(() => api.getTagRules())
+                .then((d) => {
+                  setTagRules(d.rules ?? []);
+                  load();
+                })
+            }
+            onTagRuleDelete={(tag) =>
+              api
+                .deleteTagRule(tag)
+                .then(() => api.getTagRules())
+                .then((d) => {
+                  setTagRules(d.rules ?? []);
+                  load();
+                })
+            }
+            onClose={() => setSettingsOpen(false)}
+          />
+        )}
+        {helpOpen && <HelpDialog onClose={() => setHelpOpen(false)} />}
+        {statusOpen && (
+          <StatusDialog data={data} onClose={() => setStatusOpen(false)} />
+        )}
+        {adminOpen && (
+          <RepoAdminDialog
+            repos={data.repos}
+            onSetPriority={onSetPriority}
+            onSetIgnored={onSetIgnored}
+            onClose={() => setAdminOpen(false)}
+          />
+        )}
+        {reportsOpen && <ReportsDialog onClose={() => setReportsOpen(false)} />}
+        {noticesScope != null && (
+          <NoticesDialog
+            scope={noticesScope}
+            repos={data.repos}
+            onClose={() => setNoticesScope(null)}
+            onScopeChange={setNoticesScope}
+            onChanged={load}
+            onDeleted={(notice) =>
+              notice &&
+              showToast("Notice deleted", () =>
+                mutate(() =>
+                  api.addNotice(notice.repo_id, notice.body, notice.created_at),
+                ),
+              )
+            }
+          />
+        )}
+        {issuesRepo && (
+          <IssuesDialog
+            repo={issuesRepo}
+            onClose={() => setIssuesRepoId(null)}
+          />
+        )}
+        {issuesOverviewOpen && (
+          <IssuesOverviewDialog onClose={() => setIssuesOverviewOpen(false)} />
+        )}
+        {eventLogOpen && (
+          <EventLogView onClose={() => setEventLogOpen(false)} />
+        )}
+      </Suspense>
       {toast && (
         <Toast
           message={toast.message}

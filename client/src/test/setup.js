@@ -1,9 +1,17 @@
 import "@testing-library/jest-dom/vitest";
-import { cleanup } from "@testing-library/react";
+import { cleanup, configure } from "@testing-library/react";
 import { toHaveNoViolations } from "jest-axe";
 import { afterEach, expect } from "vitest";
 
 expect.extend(toHaveNoViolations);
+
+// App.jsx code-splits its dialogs behind React.lazy(); under `--coverage`
+// instrumentation (and CI's shared CPU), the dynamic import + first render of
+// the heavier ones (HelpDialog's react-markdown/remark-gfm parse especially)
+// can take longer than testing-library's 1000ms default findBy/waitFor
+// timeout. Give async queries more headroom globally rather than special-
+// casing every test that opens a lazy-loaded dialog.
+configure({ asyncUtilTimeout: 3000 });
 
 import { resetViewport } from "./viewport.js";
 
