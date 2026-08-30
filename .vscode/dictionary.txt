@@ -4,6 +4,7 @@ autoprefixer
 backend
 chainguard
 cutoff
+triaging
 davidsneighbour
 dependabot
 dialog
